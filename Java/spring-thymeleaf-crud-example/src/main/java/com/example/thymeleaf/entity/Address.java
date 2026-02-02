@@ -53,17 +53,24 @@ public class Address {
         this.updatedAt = LocalDateTime.now();
     }
 
+    private String mask(String value) {
+        if (value == null) {
+            return "null";
+        }
+        return "*".repeat(value.length());
+    }
+
     @Override
     public String toString() {
         return "Address{" +
                 "id='" + id + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", street='" + street + '\'' +
-                ", number='" + number + '\'' +
-                ", complement='" + complement + '\'' +
-                ", district='" + district + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
+                ", zipCode='" + mask(zipCode) + '\'' +
+                ", street='" + mask(street) + '\'' +
+                ", number='" + mask(number) + '\'' +
+                ", complement='" + mask(complement) + '\'' +
+                ", district='" + mask(district) + '\'' +
+                ", city='" + mask(city) + '\'' +
+                ", state='" + mask(state) + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

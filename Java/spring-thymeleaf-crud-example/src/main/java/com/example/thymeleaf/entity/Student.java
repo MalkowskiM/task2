@@ -46,13 +46,20 @@ public class Student {
         this.updatedAt = LocalDateTime.now();
     }
 
+    private String mask(String value) {
+        if (value == null) {
+            return "null";
+        }
+        return "*".repeat(value.length());
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", birthday=" + birthday +
+                ", name='" + mask(name) + '\'' +
+                ", email='" + mask(email) + '\'' +
+                ", birthday=" + mask(birthday.toString()) +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 ", address=" + address +
